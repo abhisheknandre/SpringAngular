@@ -1,0 +1,18 @@
+<h2>Students List</h2>
+
+<table class="table table-stiped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.name}}</td>
+            <td>{{student.address}}</td>
+        </tr>
+    </tbody>
+
+
+</table>
