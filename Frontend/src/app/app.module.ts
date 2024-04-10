@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateStudentComponent } from './update-student/update-student.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { UpdateStudentComponent } from './update-student/update-student.componen
     StudentsListComponent,
     CreateStudentComponent,
     UpdateStudentComponent,
+    StudentDetailsComponent,
     
   ],
   imports: [

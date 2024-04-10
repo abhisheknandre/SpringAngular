@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/student")
@@ -34,6 +35,14 @@ public class StudentController {
     public ResponseEntity<Student> updateStudent(@PathVariable int id,@RequestBody Student studentDetails){
         return studentService.updateStudent(id, studentDetails);
     }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteStudent(@PathVariable int id) {
+        Map<String, Boolean> response = studentService.deleteStudent(id);
+        return ResponseEntity.ok(response);
+    }
+
+
 
 
 }

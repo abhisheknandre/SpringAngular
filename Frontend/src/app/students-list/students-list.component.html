@@ -14,6 +14,8 @@
             <td> {{student.address}} </td>
             <td>
                 <button (click)="updateStudent(student.id)" class="btn btn-info">Update</button>
+                <button (click)="deleteStudent(student.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                <button (click)="studentDetails(student.id)" class="btn btn-info" style="margin-left: 10px"> View</button>
             </td>
 
         </tr>

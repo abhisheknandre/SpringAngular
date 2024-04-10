@@ -11,6 +11,7 @@ export class StudentService {
   private addURL = "http://localhost:8081/student/add";
   private getURL = "http://localhost:8081/student/getById/";
   private updateURL = "http://localhost:8081/student/update/";
+  private deleteURL = "http://localhost:8081/student/delete/";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,4 +29,7 @@ export class StudentService {
   updateStudent(id: number, student: Student): Observable<Object>{
     return this.httpClient.put(`${this.updateURL}${id}`,student);
   } 
+  deleteStudent(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.deleteURL}${id}`);
+  }
 }
