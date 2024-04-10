@@ -9,6 +9,8 @@ import { Student } from './student';
 export class StudentService {
   private baseURL = "http://localhost:8081/student/getAll";
   private addURL = "http://localhost:8081/student/add";
+  private getURL = "http://localhost:8081/student/getById/";
+  private updateURL = "http://localhost:8081/student/update/";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,4 +21,11 @@ export class StudentService {
   createStudent(student: Student): Observable<Object>{
     return this.httpClient.post(`${this.addURL}`,student)
   }
+  getStudentById(id: number): Observable<Student>{
+    return this.httpClient.get<Student>(`${this.getURL}${id}`);
+  }
+
+  updateStudent(id: number, student: Student): Observable<Object>{
+    return this.httpClient.put(`${this.updateURL}${id}`,student);
+  } 
 }

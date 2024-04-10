@@ -3,11 +3,9 @@ package com.abhinandre.studentsystem.service;
 import com.abhinandre.studentsystem.model.Student;
 import com.abhinandre.studentsystem.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,15 +25,14 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public ResponseEntity<List<Student>> getStudentById(int id){
-        try {
-            return new ResponseEntity<>(studentRepository.findById(id),HttpStatus.OK);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public ResponseEntity<Student> getStudentById(int id){
+        Student student = studentRepository.findByid(id);
+        if(student != null){
+            return  ResponseEntity.ok(student);
+        }else {
+            return ResponseEntity.notFound().build();
         }
-        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_GATEWAY);
     }
-
     @Override
     public ResponseEntity<Student> updateStudent(int id,Student studentDetails){
         Student student = studentRepository.findByid(id);

@@ -33,7 +33,6 @@ export class CreateStudentComponent implements OnInit{
   onSubmit(){
     console.log(this.student);
     this.saveStudent();
-
   }
 
 }
